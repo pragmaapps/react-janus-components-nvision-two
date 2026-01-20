@@ -1994,7 +1994,7 @@
 					delete pluginHandle.mids[event.track.id];
 				};
 				event.track.onmute = function(ev) {
-					Janus.log('Remote track muted:', ev);
+					// Janus.log('Remote track muted:', ev);
 					if(!trackMutedTimeoutId) {
 						trackMutedTimeoutId = setTimeout(function() {
 							Janus.log('Removing remote track');

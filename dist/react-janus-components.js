@@ -4108,7 +4108,7 @@ function Janus(gatewayCallbacks) {
 				delete pluginHandle.mids[event.track.id];
 			};
 			event.track.onmute = function (ev) {
-				Janus.log('Remote track muted:', ev);
+				// Janus.log('Remote track muted:', ev);
 				if (!trackMutedTimeoutId) {
 					trackMutedTimeoutId = setTimeout(function () {
 						Janus.log('Removing remote track');
@@ -21958,6 +21958,8 @@ var JanusStreamer = _react2.default.forwardRef(function (_ref, ref) {
         }
         return function () {
             unmounted = true;
+            clearInterval(streamInterval);
+            streamInterval = null;
         };
     }, [janus]);
 

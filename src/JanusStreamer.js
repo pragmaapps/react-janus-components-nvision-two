@@ -35,6 +35,8 @@ const JanusStreamer = React.forwardRef((
         }
         return () => {
             unmounted = true;
+            clearInterval(streamInterval);
+            streamInterval = null;
         };
     }, [janus])
 
