@@ -3,7 +3,7 @@ import $ from 'jquery';
 import Janus from './utils/janus';
 import { subscribeStreaming, startStream } from './utils/streaming';
 import JanusStreamPlayer from './JanusStreamPlayer';
-import { Video } from 'video-react';
+// import { Video } from 'video-react';
 
 const JanusStreamer = React.forwardRef((
     {
@@ -67,7 +67,7 @@ const JanusStreamer = React.forwardRef((
 
     const handlePlayEvent = (e) => {
         console.log("[JanusStreamer] Live Stream Playing", e);
-        videoArea.current !== null && videoArea.current.video.video.play();
+        videoArea.current !== null && videoArea.current.play();
         streamIsLive(true);
     }
     const streamingCallback = (_streaming, eventType, data, mid="v") => {
@@ -76,7 +76,7 @@ const JanusStreamer = React.forwardRef((
             mystream = data;
 
             console.log("[Attaching stream to the video element:]", videoArea);
-            const videoPlayer = videoArea.current.video.video
+            const videoPlayer = videoArea.current;
             Janus.attachMediaStream(videoPlayer, mystream);
             videoPlayer.addEventListener('error', handleErrorVideo);
             videoPlayer.addEventListener('play', handlePlayEvent);
