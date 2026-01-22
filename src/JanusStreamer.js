@@ -78,6 +78,7 @@ const JanusStreamer = React.forwardRef((
             console.log("[Attaching stream to the video element]", videoArea);
             const videoPlayer = videoArea.current;
             Janus.attachMediaStream(videoPlayer, mystream);
+            videoPlayer.play();
             videoPlayer.addEventListener('error', handleErrorVideo);
             videoPlayer.addEventListener('play', handlePlayEvent);
             if (_streaming.webrtcStuff.pc.iceConnectionState !== "completed" &&
